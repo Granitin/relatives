@@ -34,7 +34,7 @@ class TopMenu extends StatelessWidget {
         LayoutId(
           id: 1,
           child: Text(
-            'Pacifico',
+            'Pacifico font',
             style: GoogleFonts.pacifico(fontSize: 20, color: Colors.brown),
           ),
         ),
