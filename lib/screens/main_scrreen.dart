@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:relatives/assets/assets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+const mainColor = Color.fromRGBO(75, 58, 48, 1.0);
+
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
@@ -13,9 +15,30 @@ class MainScreen extends StatelessWidget {
           color: const Color.fromARGB(255, 255, 255, 255),
         ),
         Column(
-          children: const [
-            TopMenu(),
-            Image(image: mainTree),
+          children: [
+            const TopMenu(),
+            const Image(image: mainTree),
+            const SizedBox(
+              height: 50,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(mainColor),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    'Войти в приложение',
+                    style: GoogleFonts.pacifico(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ]),
@@ -34,23 +57,31 @@ class TopMenu extends StatelessWidget {
         LayoutId(
           id: 1,
           child: Text(
-            'Pacifico font for example',
-            style: GoogleFonts.pacifico(fontSize: 20, color: Colors.brown),
+            'Моё',
+            style: GoogleFonts.pacifico(
+              fontSize: 30,
+              color: mainColor,
+            ),
           ),
         ),
         LayoutId(
           id: 2,
-          child: Container(
-            width: 50,
-            height: 20,
-            color: Colors.blue,
+          child: Text(
+            'семейное',
+            style: GoogleFonts.pacifico(
+              fontSize: 30,
+              color: mainColor,
+            ),
           ),
         ),
         LayoutId(
           id: 3,
-          child: ElevatedButton(
-            onPressed: () {},
-            child: const Text('do this'),
+          child: Text(
+            'дерево',
+            style: GoogleFonts.pacifico(
+              fontSize: 30,
+              color: mainColor,
+            ),
           ),
         ),
       ],
@@ -70,9 +101,9 @@ class OunMultiChildLayoutDelegate extends MultiChildLayoutDelegate {
       layoutChild(1, BoxConstraints.loose(size));
       layoutChild(2, BoxConstraints.loose(size));
       layoutChild(3, BoxConstraints.loose(size));
-      positionChild(1, const Offset(20, 100));
-      positionChild(2, const Offset(150, 120));
-      positionChild(3, const Offset(250, 150));
+      positionChild(1, const Offset(50, 75));
+      positionChild(2, const Offset(140, 100));
+      positionChild(3, const Offset(270, 125));
     }
   }
 
